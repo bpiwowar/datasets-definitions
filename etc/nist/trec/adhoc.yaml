@@ -58,9 +58,8 @@ data:
         download:
             handler: single/file
             url: "http://trec.nist.gov/data/topics_eng/topics.51-100.gz"
-            replace:
-                pattern: "Number:(\\s+)0" 
-                replace: "Number: \\1"
+            transforms:
+                - replace: { repl: "Number: \\1", pattern: "Number:(\\s+)0" }
     -
         id: "1.qrels"
         description: "TREC 1 relevance assessments"
