@@ -1,0 +1,91 @@
+
+# See https://catalog.ldc.upenn.edu/LDC93T3A
+description: |
+  TIPSTER is sometimes also called the Text Research Collection Volume or TREC.
+
+  The TIPSTER project was sponsored by the Software and Intelligent Systems Technology Office of the Advanced Research Projects Agency (ARPA/SISTO) in an effort to significantly advance the state of the art in effective document detection (information retrieval) and data extraction from large, real-world data collections.
+  
+  The detection data is comprised of a test collection built at NIST for the TIPSTER project and the related TREC project. The TREC project has many other participating information retrieval research groups, working on the same task as the TIPSTER groups, but meeting once a year in a workshop to compare results (similar to MUC). The test collection consists of three CD-ROMs of SGML encoded documents distributed by LDC plus queries and answers (relevant documents) distributed by NIST.
+data:
+  # Associated Press
+  - 
+    id: ap88 
+    description: Associated Press (1988)
+    pattern: ^AP88.*$
+    handler: trec.documents/sgml
+  -
+    id: ap89 
+    description: Associated Press (1989)
+    pattern: ^AP89.*$
+    handler: trec.documents/sgml
+  -
+    id: ap90
+    description: Associated Press (1990)
+    pattern: ^AP90.*$
+    handler: trec.documents/sgml
+
+  # Department of Energy
+  - 
+    id: doe1 
+    description: Department of Energy
+    pattern: ^DOE1.*$
+    handler: trec.documents/sgml
+
+  # Wall Street Journal
+  - 
+    id: wsj87
+    description: Wall Street Journal (1987)
+    pattern: ^WSJ87.*$
+    handler: trec.documents/sgml
+  - 
+    id: wsj88 
+    description: Wall Street Journal (1988)
+    pattern: ^WSJ88.*$
+    handler: trec.documents/sgml
+  - 
+    id: wsj89
+    description: Wall Street Journal (1989)
+    pattern: ^WSJ89.*$
+    handler: trec.documents/sgml
+  - 
+    id: wsj90 
+    description: Wall Street Journal (1990)
+    pattern: ^WSJ90.*$
+    handler: trec.documents/sgml
+  - 
+    id: wsj91 
+    description: Wall Street Journal (1991)
+    pattern: ^WSJ91.*$
+    handler: trec.documents/sgml
+  - 
+    id: wsj92
+    description: Wall Street Journal (1992)
+    pattern: ^WSJ92.*$
+    handler: trec.documents/sgml
+
+  # Federal Register (1988-89)
+  - 
+    id: fr88
+    description: Federal Register (1988)
+    pattern: ^FR88.*$
+    handler: trec.documents/sgml
+  - 
+    id: fr89
+    description: Federal Register (1989)
+    pattern: ^FR89.*$
+    handler: trec.documents/sgml
+
+
+  # Ziff/Davis (1988-92)
+  - 
+    id: ziff1
+    description: Ziff/Davis
+    handler: trec.documents/sgml
+  - 
+    id: ziff2
+    description: Ziff/Davis (1989-90)
+    handler: trec.documents/sgml
+  - 
+    id: ziff3
+    description: Ziff/Davis (1991-92)
+    handler: trec.documents/sgml

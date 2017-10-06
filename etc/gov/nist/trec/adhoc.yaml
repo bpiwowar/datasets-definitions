@@ -1,0 +1,149 @@
+# TREC AD-HOC datasets and tasks
+
+namespaces:
+  tipster: gov.nist.trec.tipster
+
+data:
+  -
+    id: 1.documents
+    description: Data collection used from TREC-1 to TREC-3
+    url: https://catalog.ldc.upenn.edu/LDC93T3A
+    handler: documents/collection
+    references: [
+      !dataset tipster!ap88, !dataset tipster!ap89, !dataset tipster!doe1, !dataset tipster!fr88, !dataset tipster!fr89, !dataset tipster!wsj87, 
+      !dataset tipster!wsj88, !dataset tipster!wsj89, !dataset tipster!wsj90, !dataset tipster!wsj91, !dataset tipster!wsj92, 
+      !dataset tipster!ziff1, !dataset tipster!ziff2]
+
+  -
+    id: 4.documents
+    description: Data collection used in TREC-4
+    url: https://catalog.ldc.upenn.edu/LDC93T3A
+    handler: documents/collection
+    references: [
+      !dataset tipster!ap88, !dataset tipster!ap89, !dataset tipster!ap90, 
+      !dataset tipster!fr88, !dataset tipster!sjm1, !dataset tipster!usp93, 
+      !dataset tipster!wsj90, !dataset tipster!wsj91, !dataset tipster!wsj92, 
+      !dataset tipster!ziff2, !dataset tipster!ziff3
+    ]
+
+  -
+    id: 5.documents
+    description: Data collection used in TREC-5
+    url: https://catalog.ldc.upenn.edu/LDC93T3A
+    handler: documents/collection
+    references: [
+      !dataset tipster!ap88, !dataset tipster!cr1, !dataset tipster!fr88, !dataset tipster!fr94, !dataset tipster!ft1, 
+      !dataset tipster!wsj90, !dataset tipster!wsj91, !dataset tipster!wsj92, !dataset tipster!ziff2
+    ]
+
+  -
+    id: 6.documents
+    description: Data collection used in TREC-6
+    url: https://catalog.ldc.upenn.edu/LDC93T3A
+    handler: documents/collection
+    references: [!dataset tipster!cr1, !dataset tipster!fbis1, !dataset tipster!fr94, !dataset tipster!ft1, !dataset tipster!la8990]
+
+  -
+    id: 7.documents
+    url: https://catalog.ldc.upenn.edu/LDC93T3A
+    description: Data collection used in TREC-7 and TREC-8
+    handler: documents/collection
+    references: [!dataset tipster!fbis1, !dataset tipster!fr94, !dataset tipster!ft1, !dataset tipster!la8990]
+
+   
+  # --- TREC 1 
+   
+  -
+    id: "1.topics"
+    description: "TREC 1 topics"
+    handler: trec.adhoc/topics
+    properties:
+      parts: [desc]
+    download:
+      handler: single/file
+      url: "http://trec.nist.gov/data/topics_eng/topics.51-100.gz"
+      transforms:
+        - gunzip
+        # To get matching strings between queries and assessments
+        - [replace, { repl: "Number: \\1", pattern: "Number:(\\s+)0" }]
+
+  -
+    id: "1.qrels"
+    description: "TREC 1 relevance assessments"
+    handler: trec.adhoc/assessments
+    download:
+      handler: single/archive
+      url: "http://trec.nist.gov/data/qrels_eng/qrels.51-100.disk1.disk2.parts1-5.tar.gz"
+
+  -
+    id: ["1", "1992"]
+    description: "Ad-hoc task of TREC 1 (1992)"
+    handler: trec.adhoc/task
+    topics: !dataset ".1.topics"
+    documents: !dataset ".1.documents"
+    qrels: !dataset ".1.qrels"
+
+  # --- TREC 2
+
+   
+  -
+    id: "2.topics"
+    description: "TREC 2 topics"
+    handler: trec.adhoc/topics
+    properties:
+      parts: [title, desc]
+    download:
+      handler: single/file
+      url: "http://trec.nist.gov/data/topics_eng/topics.101-150.gz"
+      transforms:
+        - gunzip
+        # To get matching strings between queries and assessments
+        - [replace, { repl: "Number: \\1", pattern: "Number:(\\s+)0" }]
+  -
+    id: "2.qrels"
+    description: "TREC 1 relevance assessments"
+    handler: trec.adhoc/assessments
+    download:
+      handler: single/archive
+      url: "http://trec.nist.gov/data/qrels_eng/qrels.101-150.disk1.disk2.parts1-5.tar.gz"
+
+  -
+    id: ["2", "1993"]
+    description: "Ad-hoc task of TREC 2 (1993)"
+    handler: trec.adhoc/task
+    documents: !dataset ".1.documents"
+    topics: !dataset ".2.topics"
+    qrels: !dataset ".2.qrels"
+
+
+  # --- TREC 3
+
+  -
+    id: ["trec.3.adhoc", "1994.adhoc"]
+    description: "Ad-hoc task of TREC 3 (1994)"
+    documents: "trec.1.adhoc"
+    topics:
+      properties:
+        parts: [desc]
+      url: "http://trec.nist.gov/data/topics_eng/topics.151-200.gz"
+    qrels:        
+      url: "http://trec.nist.gov/data/qrels_eng/qrels.151-200.201-250.disks1-3.all.tar.gz"
+      type: "tar.gz#gz"
+
+
+  # --- TREC 4
+  - 
+    id: 4.topics
+    properties:
+      parts: [desc]
+    url: "http://trec.nist.gov/data/topics_eng/topics.201-250.gz"
+    handler: trec.adhoc/topics
+
+
+  -
+    id: ["trec.4.adhoc", "1995.adhoc"]
+    description: "Ad-hoc task of TREC 4 (1995)"
+    documents: "trec.4.adhoc"
+    qrels:        
+      url: "http://trec.nist.gov/data/qrels_eng/qrels.251-300.parts1-5.tar.gz"
+      type: "tar.gz#gz"

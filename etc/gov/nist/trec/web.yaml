@@ -1,0 +1,11 @@
+data:
+  -
+    id: clueweb09b
+    description: The ClueWeb09-B dataset, a subsample from ClueWeb09
+    type: warc
+    warc-version: 0.18
+  -
+    id: clueweb12b
+    description: The ClueWeb12-B dataset, a subsample from ClueWeb12
+    type: warc
+    warc-version: 0.18
