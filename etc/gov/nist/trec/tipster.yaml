@@ -3,24 +3,32 @@
 description: |
   TIPSTER is sometimes also called the Text Research Collection Volume or TREC.
 
-  The TIPSTER project was sponsored by the Software and Intelligent Systems Technology Office of the Advanced Research Projects Agency (ARPA/SISTO) in an effort to significantly advance the state of the art in effective document detection (information retrieval) and data extraction from large, real-world data collections.
+  The TIPSTER project was sponsored by the Software and Intelligent Systems Technology 
+  Office of the Advanced Research Projects Agency (ARPA/SISTO) in an effort to significantly 
+  advance the state of the art in effective document detection (information retrieval) and 
+  data extraction from large, real-world data collections.
   
-  The detection data is comprised of a test collection built at NIST for the TIPSTER project and the related TREC project. The TREC project has many other participating information retrieval research groups, working on the same task as the TIPSTER groups, but meeting once a year in a workshop to compare results (similar to MUC). The test collection consists of three CD-ROMs of SGML encoded documents distributed by LDC plus queries and answers (relevant documents) distributed by NIST.
+  The detection data is comprised of a test collection built at NIST for the TIPSTER project 
+  and the related TREC project. The TREC project has many other participating information 
+  retrieval research groups, working on the same task as the TIPSTER groups, but meeting 
+  once a year in a workshop to compare results (similar to MUC). The test collection consists 
+  of three CD-ROMs of SGML encoded documents distributed by LDC plus queries and answers 
+  (relevant documents) distributed by NIST.
 data:
   # Associated Press
   - 
     id: ap88 
-    description: Associated Press (1988)
+    description: Associated Press document collection (1988)
     pattern: ^AP88.*$
-    handler: trec.documents/sgml
+    handler: information-access/trec.documents/sgml
   -
     id: ap89 
-    description: Associated Press (1989)
+    description: Associated Press document collection (1989)
     pattern: ^AP89.*$
     handler: trec.documents/sgml
   -
     id: ap90
-    description: Associated Press (1990)
+    description: Associated Press document collection (1990)
     pattern: ^AP90.*$
     handler: trec.documents/sgml
 
@@ -79,13 +87,13 @@ data:
   # Ziff/Davis (1988-92)
   - 
     id: ziff1
-    description: Ziff/Davis
+    description: Ziff/Davis document collection (1988-89)
     handler: trec.documents/sgml
   - 
     id: ziff2
-    description: Ziff/Davis (1989-90)
+    description:  Ziff/Davis document collection (1989-90)
     handler: trec.documents/sgml
   - 
     id: ziff3
-    description: Ziff/Davis (1991-92)
+    description:  Ziff/Davis document collection (1991-92)
     handler: trec.documents/sgml
