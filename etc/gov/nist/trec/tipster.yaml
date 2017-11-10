@@ -20,7 +20,7 @@ data:
     id: ap88 
     description: Associated Press document collection (1988)
     pattern: ^AP88.*$
-    handler: information-access/trec.documents/sgml
+    handler: informationaccess:trec.documents/sgml
   -
     id: ap89 
     description: Associated Press document collection (1989)

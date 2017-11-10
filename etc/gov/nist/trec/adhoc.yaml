@@ -60,7 +60,7 @@ data:
     properties:
       parts: [desc]
     download:
-      handler: single/file
+      handler: /single/file
       url: "http://trec.nist.gov/data/topics_eng/topics.51-100.gz"
       transforms:
         - gunzip
@@ -72,7 +72,7 @@ data:
     description: "TREC 1 relevance assessments"
     handler: trec.adhoc/assessments
     download:
-      handler: single/archive
+      handler: /single/archive
       url: "http://trec.nist.gov/data/qrels_eng/qrels.51-100.disk1.disk2.parts1-5.tar.gz"
 
   -
@@ -93,7 +93,7 @@ data:
     properties:
       parts: [title, desc]
     download:
-      handler: single/file
+      handler: /single/file
       url: "http://trec.nist.gov/data/topics_eng/topics.101-150.gz"
       transforms:
         - gunzip
@@ -104,7 +104,7 @@ data:
     description: "TREC 1 relevance assessments"
     handler: trec.adhoc/assessments
     download:
-      handler: single/archive
+      handler: /single/archive
       url: "http://trec.nist.gov/data/qrels_eng/qrels.101-150.disk1.disk2.parts1-5.tar.gz"
 
   -
