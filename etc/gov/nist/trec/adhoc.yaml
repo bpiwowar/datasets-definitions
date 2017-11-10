@@ -65,7 +65,7 @@ data:
       transforms:
         - gunzip
         # To get matching strings between queries and assessments
-        - [replace, { repl: "Number: \\1", pattern: "Number:(\\s+)0" }]
+        - [/replace, { repl: "Number: \\1", pattern: "Number:(\\s+)0" }]
 
   -
     id: "1.qrels"
@@ -96,12 +96,12 @@ data:
       handler: /single/file
       url: "http://trec.nist.gov/data/topics_eng/topics.101-150.gz"
       transforms:
-        - gunzip
+        - /gunzip
         # To get matching strings between queries and assessments
-        - [replace, { repl: "Number: \\1", pattern: "Number:(\\s+)0" }]
+        - [/replace, { repl: "Number: \\1", pattern: "Number:(\\s+)0" }]
   -
     id: "2.qrels"
-    description: "TREC 1 relevance assessments"
+    description: "TREC 2 relevance assessments"
     handler: trec.adhoc/assessments
     download:
       handler: /single/archive
@@ -118,17 +118,34 @@ data:
 
   # --- TREC 3
 
+
   -
-    id: ["trec.3.adhoc", "1994.adhoc"]
-    description: "Ad-hoc task of TREC 3 (1994)"
-    documents: "trec.1.adhoc"
-    topics:
-      properties:
-        parts: [desc]
+    id: "3.topics"
+    description: "TREC 3 topics"
+    handler: trec.adhoc/topics
+    properties:
+      parts: [title, desc]
+    download:
+      handler: /single/file
       url: "http://trec.nist.gov/data/topics_eng/topics.151-200.gz"
-    qrels:        
+      transforms:
+        - /gunzip
+
+  -
+    id: "3.qrels"
+    description: "TREC 3 relevance assessments"
+    handler: trec.adhoc/assessments
+    download:
+      handler: /single/archive
       url: "http://trec.nist.gov/data/qrels_eng/qrels.151-200.201-250.disks1-3.all.tar.gz"
-      type: "tar.gz#gz"
+
+  -
+    id: ["3", "1994"]
+    handler: trec.adhoc/task
+    description: "Ad-hoc task of TREC 3 (1994)"
+    documents: !dataset ".1.documents"
+    topics: !dataset ".3.topics"
+    qrels: !dataset ".3.qrels"
 
 
   # --- TREC 4
