@@ -1,17 +1,22 @@
 import logging
-from datasets.data import Handler, DownloadHandler
+from datasets.handlers.datasets import DatasetHandler
 
-class Assessments(Handler):
+class Assessments(DatasetHandler):
     """TREC standard topics - one file in SGML format"""
     @property
     def destpath(self):
-        return super().destpath + ".dat"
+        return super().destpath.with_suffix(".dat")
 
-class Topics(Handler):
+    def prepare(self):
+        return {
+            "path": self.destpath
+        }
+
+class Topics(DatasetHandler):
     """TREC standard topics - one file in SGML format"""
     @property
     def destpath(self):
-        return super().destpath + ".dat"
+        return super().destpath.with_suffix(".dat")
 
-class Task(Handler):
+class Task(DatasetHandler):
     pass

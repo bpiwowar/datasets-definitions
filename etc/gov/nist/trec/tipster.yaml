@@ -14,6 +14,13 @@ description: |
   once a year in a workshop to compare results (similar to MUC). The test collection consists 
   of three CD-ROMs of SGML encoded documents distributed by LDC plus queries and answers 
   (relevant documents) distributed by NIST.
+
+buy:
+  url: https://catalog.ldc.upenn.edu/LDC93T3A
+
+datapath:
+  .
+
 data:
   # Associated Press
   - 
@@ -96,4 +103,10 @@ data:
   - 
     id: ziff3
     description:  Ziff/Davis document collection (1991-92)
+    handler: trec.documents/sgml
+
+  # SJM1
+  - 
+    id: sjm1
+    description: San Jose Mercury News (1991)
     handler: trec.documents/sgml
