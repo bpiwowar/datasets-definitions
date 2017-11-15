@@ -15,98 +15,104 @@ description: |
   of three CD-ROMs of SGML encoded documents distributed by LDC plus queries and answers 
   (relevant documents) distributed by NIST.
 
-buy:
-  url: https://catalog.ldc.upenn.edu/LDC93T3A
-
-datapath:
-  .
+url: https://catalog.ldc.upenn.edu/LDC93T3A
+datapath: .
 
 data:
   # Associated Press
-  - 
-    id: ap88 
+  ap88:
     description: Associated Press document collection (1988)
     pattern: ^AP88.*$
     handler: informationaccess:trec.documents/sgml
-  -
-    id: ap89 
+  ap89:
     description: Associated Press document collection (1989)
     pattern: ^AP89.*$
     handler: trec.documents/sgml
-  -
-    id: ap90
+  ap90:
     description: Associated Press document collection (1990)
     pattern: ^AP90.*$
     handler: trec.documents/sgml
 
   # Department of Energy
-  - 
-    id: doe1 
+  doe1:
     description: Department of Energy
     pattern: ^DOE1.*$
     handler: trec.documents/sgml
 
   # Wall Street Journal
-  - 
-    id: wsj87
+  wsj87:
     description: Wall Street Journal (1987)
     pattern: ^WSJ87.*$
     handler: trec.documents/sgml
-  - 
-    id: wsj88 
+  wsj88:
     description: Wall Street Journal (1988)
     pattern: ^WSJ88.*$
     handler: trec.documents/sgml
-  - 
-    id: wsj89
+  wsj89:
     description: Wall Street Journal (1989)
     pattern: ^WSJ89.*$
     handler: trec.documents/sgml
-  - 
-    id: wsj90 
+  wsj90:
     description: Wall Street Journal (1990)
     pattern: ^WSJ90.*$
     handler: trec.documents/sgml
-  - 
-    id: wsj91 
+  wsj91:
     description: Wall Street Journal (1991)
     pattern: ^WSJ91.*$
     handler: trec.documents/sgml
-  - 
-    id: wsj92
+  wsj92:
     description: Wall Street Journal (1992)
     pattern: ^WSJ92.*$
     handler: trec.documents/sgml
 
   # Federal Register (1988-89)
-  - 
-    id: fr88
+  fr88:
     description: Federal Register (1988)
     pattern: ^FR88.*$
     handler: trec.documents/sgml
-  - 
-    id: fr89
+  fr89:
     description: Federal Register (1989)
     pattern: ^FR89.*$
+    handler: trec.documents/sgml
+  fr94:
+    description: Federal Register (1994)
+    pattern: ^FR94.*$
     handler: trec.documents/sgml
 
 
   # Ziff/Davis (1988-92)
-  - 
-    id: ziff1
+  ziff1:
     description: Ziff/Davis document collection (1988-89)
     handler: trec.documents/sgml
-  - 
-    id: ziff2
+  ziff2:
     description:  Ziff/Davis document collection (1989-90)
     handler: trec.documents/sgml
-  - 
-    id: ziff3
+  ziff3:
     description:  Ziff/Davis document collection (1991-92)
     handler: trec.documents/sgml
 
   # SJM1
-  - 
-    id: sjm1
+  sjm1:
     description: San Jose Mercury News (1991)
     handler: trec.documents/sgml
+
+  # CR1
+  cr1:
+    description: TODO
+    handler: trec.documents/sgml
+
+  # FT1
+  ft1:
+    description: Financial Times
+    handler: trec.documents/sgml
+  
+  # FBIS1
+  fbis1:
+    description: TODO
+    handler: trec.documents/sgml
+  
+  # FBIS1
+  la8990:
+    description: Los Angeles Times (1989-90)
+    handler: trec.documents/sgml
+  

@@ -1,9 +1,8 @@
-import logging
 from datasets.handlers.datasets import DatasetHandler
-from ..documents import DocumentList
+from .documents import DocumentList
 
-class Sgml(DocumentList):
+class Warc(DocumentList):
     def prepare(self):
         r = super().prepare()
-        r["type"] = "tipster/sgml"
+        r["type"] = "warc"
         return r

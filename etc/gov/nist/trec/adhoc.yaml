@@ -7,18 +7,17 @@ data:
   
   # --- TREC 1 
 
-  -
-    id: 1.documents
+  1.documents:
     description: Data collection used from TREC-1 to TREC-3
-    url: https://catalog.ldc.upenn.edu/LDC93T3A
     handler: documents/collection
     references: [
-      !dataset tipster!ap88, !dataset tipster!ap89, !dataset tipster!doe1, !dataset tipster!fr88, !dataset tipster!fr89, !dataset tipster!wsj87, 
-      !dataset tipster!wsj88, !dataset tipster!wsj89, !dataset tipster!wsj90, !dataset tipster!wsj91, !dataset tipster!wsj92, 
+      !dataset tipster!ap88, !dataset tipster!ap89, 
+      !dataset tipster!doe1, !dataset tipster!fr88, !dataset tipster!fr89, 
+      !dataset tipster!wsj87,  !dataset tipster!wsj88, !dataset tipster!wsj89, 
+      !dataset tipster!wsj90, !dataset tipster!wsj91, !dataset tipster!wsj92, 
       !dataset tipster!ziff1, !dataset tipster!ziff2]
    
-  -
-    id: "1.topics"
+  1.topics:
     description: "TREC 1 topics"
     handler: trec.adhoc/topics
     properties:
@@ -31,27 +30,26 @@ data:
         # To get matching strings between queries and assessments
         - [/replace, { repl: "Number: \\1", pattern: "Number:(\\s+)0" }]
 
-  -
-    id: "1.qrels"
+  1.qrels:
     description: "TREC 1 relevance assessments"
     handler: trec.adhoc/assessments
     download:
       handler: /single/archive
       url: "http://trec.nist.gov/data/qrels_eng/qrels.51-100.disk1.disk2.parts1-5.tar.gz"
 
-  -
-    id: ["1", "1992"]
+  1992: !dataset .1
+  1:
     description: "Ad-hoc task of TREC 1 (1992)"
     handler: trec.adhoc/task
     topics: !dataset ".1.topics"
     documents: !dataset ".1.documents"
     qrels: !dataset ".1.qrels"
+    
 
 
   # --- TREC 2
 
-  -
-    id: "2.topics"
+  2.topics:
     description: "TREC 2 topics"
     handler: trec.adhoc/topics
     properties:
@@ -63,28 +61,27 @@ data:
         - /gunzip
         # To get matching strings between queries and assessments
         - [/replace, { repl: "Number: \\1", pattern: "Number:(\\s+)0" }]
-  -
-    id: "2.qrels"
+  
+  2.qrels:
     description: "TREC 2 relevance assessments"
     handler: trec.adhoc/assessments
     download:
       handler: /single/archive
       url: "http://trec.nist.gov/data/qrels_eng/qrels.101-150.disk1.disk2.parts1-5.tar.gz"
 
-  -
-    id: ["2", "1993"]
+  1993: !dataset 2
+  2:
     description: "Ad-hoc task of TREC 2 (1993)"
     handler: trec.adhoc/task
-    documents: !dataset ".1.documents"
-    topics: !dataset ".2.topics"
-    qrels: !dataset ".2.qrels"
+    documents: !dataset .1.documents
+    topics: !dataset .2.topics
+    qrels: !dataset .2.qrels
 
 
   # --- TREC 3
 
 
-  -
-    id: "3.topics"
+  "3.topics":
     description: "TREC 3 topics"
     handler: trec.adhoc/topics
     properties:
@@ -95,8 +92,7 @@ data:
       transforms:
         - /gunzip
 
-  -
-    id: "3.qrels"
+  "3.qrels":
     description: "TREC 3 relevance assessments"
     handler: trec.adhoc/assessments
     download:
@@ -105,8 +101,8 @@ data:
       transforms:
         - [ /filter, { pattern: "^(1\\d\\d|200)\\s" }]
 
-  -
-    id: ["3", "1994"]
+  1994: !dataset .3
+  3:
     handler: trec.adhoc/task
     description: "Ad-hoc task of TREC 3 (1994)"
     documents: !dataset ".1.documents"
@@ -118,8 +114,7 @@ data:
   # --- TREC 4
 
 
-  -
-    id: 4.documents
+  4.documents:
     description: Data collection used in TREC-4
     url: https://catalog.ldc.upenn.edu/LDC93T3A
     handler: documents/collection
@@ -130,8 +125,7 @@ data:
       !dataset tipster!ziff2, !dataset tipster!ziff3
     ]
 
-  -
-    id: "4.topics"
+  "4.topics":
     description: "TREC 4 topics"
     handler: trec.adhoc/topics
     properties:
@@ -142,16 +136,15 @@ data:
       transforms:
         - /gunzip
 
-  -
-    id: "4.qrels"
+  "4.qrels":
     description: "TREC 4 relevance assessments"
     handler: trec.adhoc/assessments
     download:
       handler: /single/archive
       url: "http://trec.nist.gov/data/qrels_eng/qrels.201-250.disk2.disk3.parts1-5.tar.gz"
 
-  -
-    id: ["4", "1995"]
+  1995: !dataset .4
+  4:
     handler: trec.adhoc/task
     description: "Ad-hoc task of TREC 4 (1995)"
     documents: !dataset ".4.documents"
@@ -161,8 +154,7 @@ data:
 
   # --- TREC 5
 
-  -
-    id: 5.documents
+  5.documents:
     description: Data collection used in TREC-5
     url: https://catalog.ldc.upenn.edu/LDC93T3A
     handler: documents/collection
@@ -171,8 +163,7 @@ data:
       !dataset tipster!wsj90, !dataset tipster!wsj91, !dataset tipster!wsj92, !dataset tipster!ziff2
     ]
 
-  -
-    id: "5.topics"
+  "5.topics":
     description: "TREC 5 topics"
     handler: trec.adhoc/topics
     properties:
@@ -183,16 +174,15 @@ data:
       transforms:
         - /gunzip
 
-  -
-    id: "5.qrels"
+  "5.qrels":
     description: "TREC 5 relevance assessments"
     handler: trec.adhoc/assessments
     download:
       handler: /single/archive
       url: "http://trec.nist.gov/data/qrels_eng/qrels.251-300.parts1-5.tar.gz"
 
-  -
-    id: ["5", "1996"]
+  1996: !dataset 5
+  5:
     handler: trec.adhoc/task
     description: "Ad-hoc task of TREC 5 (1996)"
     documents: !dataset ".5.documents"
@@ -203,15 +193,13 @@ data:
 
   # --- TREC 6 (1997)
 
-  -
-    id: 6.documents
+  6.documents:
     description: Data collection used in TREC-6
     url: https://catalog.ldc.upenn.edu/LDC93T3A
     handler: documents/collection
     references: [!dataset tipster!cr1, !dataset tipster!fbis1, !dataset tipster!fr94, !dataset tipster!ft1, !dataset tipster!la8990]
 
-  -
-    id: "6.topics"
+  6.topics:
     description: "TREC 6 topics"
     handler: trec.adhoc/topics
     properties:
@@ -222,16 +210,15 @@ data:
       transforms:
         - /gunzip
 
-  -
-    id: "6.qrels"
+  6.qrels:
     description: "TREC 6 relevance assessments"
     handler: trec.adhoc/assessments
     download:
       handler: /single/archive
       url: "http://trec.nist.gov/data/qrels_eng/qrels.trec6.adhoc.parts1-5.tar.gz"
 
-  -
-    id: ["6", "1997"]
+  1997: !dataset ".6"
+  6:
     handler: trec.adhoc/task
     description: "Ad-hoc task of TREC 6 (1997)"
     documents: !dataset ".6.documents"
@@ -242,16 +229,14 @@ data:
   # --- TREC 7 (1998)
 
 
-  -
-    id: 7.documents
+  7.documents:
     url: https://catalog.ldc.upenn.edu/LDC93T3A
     description: Data collection used in TREC-7 and TREC-8
     handler: documents/collection
     references: [!dataset tipster!fbis1, !dataset tipster!fr94, !dataset tipster!ft1, !dataset tipster!la8990]
 
 
-  -
-    id: "7.topics"
+  "7.topics":
     description: "TREC 7 topics"
     handler: trec.adhoc/topics
     properties:
@@ -262,16 +247,15 @@ data:
       transforms:
         - /gunzip
 
-  -
-    id: "7.qrels"
+  "7.qrels":
     description: "TREC 7 relevance assessments"
     handler: trec.adhoc/assessments
     download:
       handler: /single/archive
       url: "http://trec.nist.gov/data/qrels_eng/qrels.trec7.adhoc.parts1-5.tar.gz"
 
-  -
-    id: ["7", "1998"]
+  1998: !dataset ".7"
+  7:
     handler: trec.adhoc/task
     description: "Ad-hoc task of TREC 3 (1994)"
     documents: !dataset ".7.documents"
@@ -282,8 +266,7 @@ data:
   # --- TREC 8 (1999)
 
 
-  -
-    id: "8.topics"
+  "8.topics":
     description: "TREC 8 topics"
     handler: trec.adhoc/topics
     properties:
@@ -294,18 +277,68 @@ data:
       transforms:
         - /gunzip
 
-  -
-    id: "8.qrels"
+  "8.qrels":
     description: "TREC 8 relevance assessments"
     handler: trec.adhoc/assessments
     download:
       handler: /single/archive
       url: "http://trec.nist.gov/data/qrels_eng/qrels.trec8.adhoc.parts1-5.tar.gz"
 
-  -
-    id: ["8", "1999"]
+  1999: !dataset .8
+  8:
     handler: trec.adhoc/task
     description: "Ad-hoc task of TREC 8 (1999)"
     documents: !dataset ".7.documents"
     topics: !dataset ".4.topics"
     qrels: !dataset ".4.qrels"
+
+
+# --- TREC Robust (2004)
+
+  "robust.2004.topics":
+    description: "TREC Robust 2004 topics"
+    handler: trec.adhoc/topics
+    download:
+      handler: /single/file
+      url: "http://trec.nist.gov/data/robust/04.testset.gz"
+      transforms: [ /gunzip ]
+
+  "robust.2004.qrels":
+    description: "TREC Robust 2004 relevance assessments"
+    handler: trec.adhoc/assessments
+    download:
+      handler: /single/archive
+      url: "http://trec.nist.gov/data/robust/qrels.robust2004.txt"
+
+  "robust.2004":
+    handler: trec.adhoc/task
+    description: "Ad-hoc task of TREC Robust (2004)"
+    documents: !dataset ".7.documents"
+    topics: !dataset ".robust.2004.topics"
+    qrels: !dataset ".robust.2004.qrels"
+
+
+
+# --- TREC Robust (2005)
+
+  "robust.2005.topics":
+    description: "TREC Robust 2005 topics"
+    handler: trec.adhoc/topics
+    download:
+      handler: /single/file
+      url: "http://trec.nist.gov/data/robust/05/05.50.topics.txt"
+
+  "robust.2005.qrels":
+    description: "TREC Robust 2005 relevance assessments"
+    handler: trec.adhoc/assessments
+    download:
+      handler: /single/archive
+      url: "http://trec.nist.gov/data/robust/05/TREC2005.qrels.txt"
+
+  robust.2005:
+    handler: trec.adhoc/task
+    description: "Ad-hoc task of TREC Robust (2005)"
+    documents: !dataset "aquaint.documents"
+    topics: !dataset ".robust.2005.topics"
+    qrels: !dataset ".robust.2005.qrels"
+
