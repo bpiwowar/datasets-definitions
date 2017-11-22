@@ -4,5 +4,5 @@ from .documents import DocumentList
 class Warc(DocumentList):
     def prepare(self):
         r = super().prepare()
-        r["type"] = "warc"
+        r["$type"] = "datasets.web.warc"
         return r

@@ -9,6 +9,7 @@ class Assessments(DatasetHandler):
 
     def prepare(self):
         return {
+            "$type": "trec.adhoc.assessments",
             "path": self.destpath
         }
 
@@ -17,6 +18,12 @@ class Topics(DatasetHandler):
     @property
     def destpath(self):
         return super().destpath.with_suffix(".dat")
+    def prepare(self):
+        return {
+            "$type": "trec.adhoc.topics",
+            "path": self.destpath
+        }
+
 
 class Task(DatasetHandler):
     pass
