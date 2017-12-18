@@ -9,7 +9,7 @@ class Assessments(DatasetHandler):
 
     def prepare(self):
         return {
-            "$type": "trec.adhoc.assessments",
+            "$type": "gov.nist.trec.adhoc.assessments",
             "path": self.destpath
         }
 
@@ -20,7 +20,7 @@ class Topics(DatasetHandler):
         return super().destpath.with_suffix(".dat")
     def prepare(self):
         return {
-            "$type": "trec.adhoc.topics",
+            "$type": "gov.nist.trec.adhoc.topics",
             "path": self.destpath
         }
 

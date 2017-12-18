@@ -19,7 +19,7 @@ class Collection(DatasetHandler):
         l = []
         for r in self.content["references"]:
             l.append(r.prepare())
-        return { "id": self.dataset.id, "$type": "collection", "list": l }
+        return { "id": self.dataset.id, "$type": "ds.collection", "list": l }
 
     def __repr__(self):
         return "Collection(%s)" % (", ".join([repr(r) for r in self.content["references"]]))
